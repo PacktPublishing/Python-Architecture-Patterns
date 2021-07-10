@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  version: "1.0.0"
+  title: "Swagger Pens"
+paths:
+  /pens:
+    post:
+      tags:
+      - "pens"
+      summary: "Add a new pen"
+      requestBody:
+        description: "Pen object that needs to be added to the store"
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Pen"
+      responses:
+        "201":
+          description: "Created"
+        "400":
+          description: "Invalid input"
+  /pens/{pen_id}:
+    get:
+      tags:
+      - "pens"
+      summary: "Retrieve an existing pen"
+      parameters:
+      - name: "pen_id"
+        in: path
+        description: "Pen ID"
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        "200":
+          description: "OK"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Pen"
+        "404":
+          description: "Not Found"
+
+components:
+  schemas:
+    Pen:
+      type: "object"
+      properties:
+        name:
+          type: "string"
+        color:
+          type: "string"
+          enum:
+            - black
+            - blue
+            - red

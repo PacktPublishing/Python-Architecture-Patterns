@@ -139,3 +139,7 @@ cython_debug/
 
 # Word docs
 *.docx
+.DS_Store
+*.db
+*.mp4
+*.png
