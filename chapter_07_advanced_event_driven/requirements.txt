@@ -1,0 +1,4 @@
+celery[redis]
+click
+boto3
+moviepy
