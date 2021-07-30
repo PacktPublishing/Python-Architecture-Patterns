@@ -1,0 +1,2 @@
+django
+django-rest-framework

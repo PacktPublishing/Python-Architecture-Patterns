@@ -1,0 +1,6 @@
+FROM ubuntu 
+RUN mkdir -p /opt/
+COPY sometext.txt /opt/sometext.txt
+
+CMD cat /opt/sometext.txt
+
