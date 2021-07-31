@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 _term() {
   echo "Caught SIGTERM signal! Sending graceful stop to uWSGI through the master-fifo"
@@ -8,7 +8,7 @@ _term() {
   echo q > /tmp/uwsgi-fifo
 }
 
-trap _term SIGTERM
+trap _term TERM
 
 nginx
 uwsgi --ini /opt/server/uwsgi.ini &
@@ -20,3 +20,4 @@ wait $!
 # 128 + 15 (SIGTERM)
 # http://www.tldp.org/LDP/abs/html/exitcodes.html
 # http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_12_02.html
+echo "Exiting, bye!"

@@ -10,6 +10,7 @@ RUN mkdir -p /opt/server
 ADD ./docker/uwsgi.ini /opt/server
 ADD ./docker/nginx.conf /etc/nginx/conf.d/default.conf
 ADD ./docker/start_server.sh /opt/server
+RUN chmod +x /opt/server/start_server.sh
 
 # Add and install requirements
 ADD requirements.txt /opt/server
@@ -25,4 +26,4 @@ WORKDIR /opt/code
 RUN python3 manage.py collectstatic --noinput
 
 EXPOSE 8000
-CMD ["/bin/sh", "/opt/server/start_server.sh"]
+CMD ["/bin/bash", "/opt/server/start_server.sh"]
