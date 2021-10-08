@@ -1,0 +1,10 @@
+[uwsgi]
+chdir=/root/directory
+wsgi-file = webapplication/wsgi.py
+master=True
+socket=/tmp/uwsgi.sock
+vacuum=True
+processes=1
+max-requests=5000
+# Used to send commands to uWSGI
+master-fifo=/tmp/uwsgi-fifo
