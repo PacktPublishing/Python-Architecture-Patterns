@@ -24,7 +24,6 @@ def leonardo(number):
     return ret_value
 
 
-NUMBER = 3500000
+NUMBER = 35000
 for i in range(NUMBER + 1):
-    # print(f'leonardo[{i}] = {leonardo(i)}')
-    leonardo(i)
+    print(f'leonardo[{i}] = {leonardo(i)}')
