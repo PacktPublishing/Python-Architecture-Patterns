@@ -70,29 +70,6 @@ TEMPLATES = [
     },
 ]
 
-# REQUEST_ID_HEADER = None
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple',
-        },
-    },
-    'formatters': {
-        'simple': {
-            'format': '{asctime} {levelname} {message}',
-            'style': '{',
-        },
-    },
-    'root': {
-        'handlers': ['console'],
-        'level': 'INFO',
-    },
-}
-
 LOG_REQUEST_ID_HEADER = "HTTP_X_REQUEST_ID"
 GENERATE_REQUEST_ID_IF_NOT_IN_HEADER = True
 
@@ -106,12 +83,12 @@ LOGGING = {
     },
     'formatters': {
         'standard': {
-            'format': '%(levelname)-8s [%(asctime)s] [%(request_id)s] %(name)s: %(message)s'
+            'format': '%(asctime)s %(levelname)-8s [%(request_id)s] %(name)s: %(message)s'
         },
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'filters': ['request_id'],
             'formatter': 'standard',
@@ -119,7 +96,7 @@ LOGGING = {
     },
     'root': {
         'handlers': ['console'],
-        'level': 'DEBUG',
+        'level': 'INFO',
     },
 }
 
