@@ -14,9 +14,11 @@ SOURCE_VIDEO_PATH = '/source_video.mp4'
 @click.command()
 @click.argument('video_to_upload')
 def main(video_to_upload):
+    # Note the credentials are required by boto3, but whe are using
+    # a mock S3 that doesn't require them, so they can be fake
     client = boto3.client('s3', endpoint_url=MOCK_S3,
-                          aws_access_key_id='ACCESS_ID',
-                          aws_secret_access_key='ACCESS_KEY')
+                          aws_access_key_id='FAKE_ACCESS_ID',
+                          aws_secret_access_key='FAKE_ACCESS_KEY')
     # Create bucket if not set
     client.create_bucket(Bucket=BUCKET)
 
