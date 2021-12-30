@@ -17,4 +17,4 @@ You can start a redis server to act as broker running this docker command
 
 ## Start celery flower
 
-    $ celery flower -A celery_tasks --broker=redis://localhost --port=5555
+    $ celery --broker=redis://localhost flower -A celery_tasks --port=5555
