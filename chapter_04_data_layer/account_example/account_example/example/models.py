@@ -51,7 +51,8 @@ class Account(object):
         self.internal, _ = InternalAccount.objects.get_or_create(
             account_number=account_number,
             initial_amount=amount,
-            amount=amount)
+            amount=amount,
+            branch_id=0)
 
     @property
     def amount(self):
