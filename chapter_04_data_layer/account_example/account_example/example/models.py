@@ -8,7 +8,6 @@ class InternalAccount(models.Model):
     account_number = models.IntegerField(unique=True)
     initial_amount = models.IntegerField(default=0)
     amount = models.IntegerField(default=0)
-    branch_id = models.IntegerField()
 
     def recalculate(self):
         '''
@@ -51,8 +50,7 @@ class Account(object):
         self.internal, _ = InternalAccount.objects.get_or_create(
             account_number=account_number,
             initial_amount=amount,
-            amount=amount,
-            branch_id=0)
+            amount=amount)
 
     @property
     def amount(self):
